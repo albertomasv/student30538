@@ -244,6 +244,11 @@ alt.Chart(diamonds).mark_rect().encode(
 alt.Chart(diamonds).mark_boxplot().encode(
     alt.X('carat:Q', bin=alt.Bin(maxbins=10)), 
     alt.Y('price:Q'))
+
+
+    #The white lines in the boxplot is the median
+    #of the distribution. Box plot only shows outliers
+    #if the value is 1.5 more than the median
 ```
 
 ## Question: How is carat related to price? 2 continuous vars
@@ -293,6 +298,22 @@ alt.Chart(df).mark_point().encode(
 We are now going to transition from making plots to teach **ourselves** to making plots for an audience.
 
 Are penguins getting heavier (`body_mass_g`) over time? 
+
+```{python}
+
+penguins_2 = penguins.groupby(['year', 'species'])['body_mass_g'].mean().reset_index()
+
+
+alt.Chart(penguins_2).mark_bar().encode(
+    x='year:O',
+    y='body_mass_g:Q',
+    color='species:N',
+    tooltip=['year', 'species', 'body_mass_g']
+).properties(
+    title='Average Body Mass of Penguins by Species Over Years'
+)
+
+```
 
 Bonus: what is the headline of your plot and what are the sub-messages?
 
