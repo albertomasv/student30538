@@ -112,6 +112,9 @@ data = gpd.read_file(filepath)
 type(data)
 ```
 
+```{python}
+type(data)
+```
 
 
 

@@ -198,6 +198,8 @@ These two input methods produce the same output. No "right" way. Use whichever w
 line = LineString([point1, point2, point3])
 
 line_from_tuples = LineString([(2.2, 4.2), (7.2, -25.1), (9.26, -2.456)])
+
+print(line)
 ```
 
 ## `LineString` discussion questions
@@ -315,9 +317,34 @@ poly_with_hole
 ## Do-pair-Share
 
 1.  Create a triangle
+
+```{python}
+tria1 = Point(2, 2)
+tria2 = Point(1, 1)
+tria3 = Point(3, 1)
+
+tria = Polygon([tria1, tria2, tria3])
+tria
+```
+
 2.  Create a square
+
+```{python}
+sq1 = Point(1, 1)
+sq2 = Point(1, 2)
+sq3 = Point(2, 2)
+sq4 = Point(2, 1)
+
+square = Polygon([sq1, sq2, sq3, sq4])
+square
+```
+
 3.  Create a circle (hint: look up the `buffer` method in `shapely`)
 
+```{python}
+circle = point1.buffer(1)
+circle
+```
 
 ## geo data in vectors: summary
 
